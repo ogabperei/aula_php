@@ -1,7 +1,12 @@
 <x-layout title="Calcular IMC">
 
-<form method="get" action="/imc/calcular">
+<form method="get" action="/imc/store">
 
+<div class="mb-3">
+    @csrf
+    <label for="exampleInputEmail1" class="form-label">Nome</label>
+    <input type="textl" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nome">
+</div>
 <div class="mb-3">
     @csrf
     <label for="exampleInputEmail1" class="form-label">Altura</label>
@@ -19,5 +24,7 @@
     <label>IMC: {{$resultado["imc"]}}</label><br> 
     <label>Faixa: {{$resultado["faixa"]}}</label><br> 
     <br><br><br>
+
+
 
 </x-layout>

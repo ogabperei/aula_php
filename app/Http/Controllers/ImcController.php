@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\ImcModel;
+
 class ImcController extends Controller
 
 {
@@ -48,6 +50,21 @@ class ImcController extends Controller
 
     }
 
+    public function store(Request $request){
+        
+        $peso = $data['peso'];
+        $altura = $data['altura'];
+        $nome = $data['nome'];
 
+        $imc = new ImcModel();
+        $imc->nome=$nome;
+        $imc->altura=$altura;
+        $imc->peso=$peso;
+
+        $imc->save();
+        
+        return redirect('/imc/calcular');
+        
+    }
 }
 
