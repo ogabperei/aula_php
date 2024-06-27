@@ -10,12 +10,8 @@ Route::get('/', function () {
 
 Route::get('/imc', [ImcController::class, 'index']);
 
-Route::get('/imc/calcular', [ImcController::class,'calcular']);
+Route::get('/imc/calcular', [ImcController::class,'calcular'])->name('imc.calcular');
 
 Route::get('/imc/store',[ImcController::class,'store'])->name('imc.store');
 
-Route::put('/imc/update', [ImcController::class,'update']);
-
-Route::delete('imc/delete', [ImcController::class,'delete']);
-
-Route::get('/imc/show', [ImcController::class,'show']);
+Route::get('/imc/show', [ImcController::class, 'show']);

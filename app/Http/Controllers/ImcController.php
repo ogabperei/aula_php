@@ -51,7 +51,8 @@ class ImcController extends Controller
     }
 
     public function store(Request $request){
-        
+
+        $data = $request->all();
         $peso = $data['peso'];
         $altura = $data['altura'];
         $nome = $data['nome'];
@@ -63,8 +64,16 @@ class ImcController extends Controller
 
         $imc->save();
         
-        return redirect('/imc/calcular');
+        return redirect()->route('imc.calcular', $data);
         
     }
+
+    
+    public function show(Request $request){
+        $showImc = ImcModel::orderBy('id', 'asc')->get();
+        
+        return view('imc.show')->with('showImc',$showImc);
+    }
+
 }
 
