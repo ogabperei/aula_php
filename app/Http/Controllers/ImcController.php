@@ -83,5 +83,19 @@ class ImcController extends Controller
         return redirect('imc/show');
     }        
 
-}
 
+    public function update(Request $request, $id){
+       
+        $updateIMC = ImcModel::findOrFail($id);
+
+        $updateIMC->nome = $request->novo_nome;
+        $updateIMC->altura=$request->novo_altura;
+        $updateIMC->peso=$request->novo_peso;
+
+        $updateIMC->save();
+
+        return redirect('/imc/show');
+
+    }
+
+}
