@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImcController;
+use App\Http\Controllers\NotaController;
 
 
 Route::get('/', function () {
@@ -19,3 +20,10 @@ Route::get('/imc/show', [ImcController::class, 'show']);
 Route::delete('/imc/delete/{id}', [ImcController::class,'destroy'])->name('imc.delete'); 
 
 Route::put('/imc/update/{id}', [ImcController::class, 'update'])->name('imc.update');
+
+
+// Rota Nota
+
+
+Route::get('/nota', [NotaController::class, 'index']);
+
