@@ -27,3 +27,6 @@ Route::put('/imc/update/{id}', [ImcController::class, 'update'])->name('imc.upda
 
 Route::get('/nota', [NotaController::class, 'index']);
 
+Route::get('/nota/calcular', [NotaController::class,'calcular'])->name('notas.calcular');
+
+Route::get('/nota/store',[ImcController::class,'store'])->name('notas.store');
