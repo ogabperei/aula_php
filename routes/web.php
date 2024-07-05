@@ -29,4 +29,4 @@ Route::get('/nota', [NotaController::class, 'index']);
 
 Route::get('/nota/calcular', [NotaController::class,'calcular'])->name('notas.calcular');
 
-Route::get('/nota/store',[ImcController::class,'store'])->name('notas.store');
+Route::get('/nota/store',[NotaController::class,'store'])->name('notas.store');

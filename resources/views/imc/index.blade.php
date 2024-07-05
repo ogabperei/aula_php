@@ -1,6 +1,6 @@
 <x-layout title="Calcular IMC">
 
-<form method="get" action="/imc/store">
+<form method="get" action="notas.store">
 
 <div class="mb-3">
     @csrf
@@ -21,7 +21,7 @@
 </form>
 
     <label>RESULTADO:</label><br> 
-    <label>IMC: {{$resultado["imc"]}}</label><br> 
+    <label>IMC: {{$resultado["media"]}}</label><br> 
     <label>Faixa: {{$resultado["faixa"]}}</label><br> 
     <br><br><br>
 

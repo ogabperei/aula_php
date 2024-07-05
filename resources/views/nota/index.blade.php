@@ -1,6 +1,6 @@
 <x-layout title="Inserir Media">
 
-    <form method="GET" action="/nota/store">
+    <form method="get" action="/nota/store">
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nome</label>
@@ -13,7 +13,13 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Calcular</button>
-
     </form>
+
+<!--     
+<label>RESULTADO:</label><br>
+<label>Nota: {{$resultado["nota"]}}</label><br>
+<label>Faixa: {{$resultado["faixa"]}}</label><br>
+<br><br><br> -->
+
 
 </x-layout>

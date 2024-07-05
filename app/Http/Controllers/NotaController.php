@@ -14,45 +14,51 @@ class NotaController extends Controller
             "nota" => "",
             "faixa" => ""
         ];
-        return view('nota.index') ->with('resultado',$resultado);
+        return view('nota.index')->with('resultado', $resultado);
   
     }
 
     public function calcular(Request $request){
-       
+
         $data = $request->all();
 
+        $nome = $data["nome"];
         $nota = $data["nota"];
-        $faixa = $data["faixa"];
+
+
+        $resultado["nota"] = $nota;
 
 
         switch (true) {
-            case ($nota <= 5.9):
-                $faixa["faixa"] = "VocÊ está APROVADO!!!!!!";
+            case ($nota <= 5):
+                $resultado["faixa"] = "REPROVADO";
                 break;
             case ($nota >= 6):
-                $faixa["faixa"] = "VAGABUNDO, não passou!";
+                $resultado["faixa"] = "APROVADO";
                 break;
         }
 
-        return view("nota.resultado", compact('faixa'));
+        return view("nota.resultado")->with('resultado', $resultado);
 
     }
 
-    public function store(Request $request){
+     public function store(Request $request){
 
-        $data = $request->all();
-        $nome = $data['nome'];
-        $nota = $data['nota'];
+         $data = $request->all();
+         $nome = $data['nome'];
+         $nota = $data['nota'];
+       
+         
 
-        $nota = new NotaModel();
-        $nota->nome=$nome;
-        $nota->nota=$nota;
+         $notas = new NotasModel();
+         $notas->nome=$nome;
+         $notas->nota=$nota;
         
-        $nota->save();
         
-        return redirect()->route('notas.calcular', $data);
+         $notas->save();
         
-    }
+         return redirect()->route('notas.calcular', $data);
+        
+   }
 }
 
