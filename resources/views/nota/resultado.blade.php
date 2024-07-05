@@ -2,8 +2,8 @@
 
 
 <label>RESULTADO:</label><br>
-<label>IMC: {{$resultado["media"]}}</label><br>
-<label>Faixa: {{$resultado["resultado"]}}</label><br>
+<label>Nota: {{$resultado["nota"]}}</label><br>
+<label>Faixa: {{$resultado["faixa"]}}</label><br>
 <br><br><br>
 
 

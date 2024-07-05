@@ -1,6 +1,7 @@
 <x-layout title="Inserir Media">
 
-    <form method="GET" action="notas.store">
+    <form method="GET" action="/nota/store">
+
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nome</label>
             <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Seu Nome" name="nome">

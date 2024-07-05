@@ -11,7 +11,7 @@ class NotaController extends Controller
     public function index(){
 
         $resultado = [
-            "media" => "",
+            "nota" => "",
             "faixa" => ""
         ];
         return view('nota.index') ->with('resultado',$resultado);
@@ -22,39 +22,37 @@ class NotaController extends Controller
        
         $data = $request->all();
 
-        $media = $data["media"];
-        $resultado = $data["faixa"];
-
-
-        $resultado["imc"] = round($imc, 2);
+        $nota = $data["nota"];
+        $faixa = $data["faixa"];
 
 
         switch (true) {
-            case ($media <= 5.9):
-                $resultado["faixa"] = "VocÊ está APROVADO!!!!!!";
+            case ($nota <= 5.9):
+                $faixa["faixa"] = "VocÊ está APROVADO!!!!!!";
                 break;
-            case ($media >= 6):
-                $resultado["faixa"] = "VAGABUNDO, não passou!";
+            case ($nota >= 6):
+                $faixa["faixa"] = "VAGABUNDO, não passou!";
                 break;
         }
 
-        return view("nota.resultado", compact('resultado'));
+        return view("nota.resultado", compact('faixa'));
 
     }
 
     public function store(Request $request){
 
         $data = $request->all();
-        $media = $data['media'];
-        $resultado = $data['resultado'];
+        $nome = $data['nome'];
+        $nota = $data['nota'];
 
-        $notas = new NotasModel();
-        $notas->media=$media;
-        $notas->resultado=$resultado;
-
-        $notas->save();
+        $nota = new NotaModel();
+        $nota->nome=$nome;
+        $nota->nota=$nota;
         
-        return redirect()->route('imc.calcular', $data);
+        $nota->save();
+        
+        return redirect()->route('notas.calcular', $data);
         
     }
 }
+
